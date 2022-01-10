@@ -97,22 +97,22 @@ function showWeatherData(data)
     let main= data.current.weather[0].main;
     switch(main){
         case"Clear":
-            document.getElementById("bg").style.backgroundImage="url('/website/clear.gif')";
+            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/clear.gif')";
             break;
         case"Clouds":
-            document.getElementById("bg").style.backgroundImage="url('/website/clouds.gif')";
+            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/clouds.gif')";
             break;
         case"Rain": 
-            document.getElementById("bg").style.backgroundImage="url('/website/rain.gif')";
+            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/Rain.gif')";
             break;
         case"Snow":
-            document.getElementById("bg").style.backgroundImage="url('/website/snow.gif')";
+            document.getElementById("bg").style.backgroundImage="url('/https://ayush1704.github.io/website/website/Snow.gif')";
             break;
         case"Thunderstorm":
-            document.getElementById("bg").style.backgroundImage="url('/website/thunderstorm.gif')";
+            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/thunderstrom.gif')";
             break;
         default:
-            document.getElementById("bg").style.backgroundImage="url('/website/snow.gif')";
+            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/snow.gif')";
             break;
     }
 }
