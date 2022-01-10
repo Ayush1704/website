@@ -97,22 +97,22 @@ function showWeatherData(data)
     let main= data.current.weather[0].main;
     switch(main){
         case"Clear":
-            document.getElementById("bg").style.backgroundImage="url('/clear.gif')";
+            document.getElementById("bg").style.backgroundImage="url(':/clear.gif')";
             break;
         case"Clouds":
-            document.getElementById("bg").style.backgroundImage="url('/clouds.gif')";
+            document.getElementById("bg").style.backgroundImage="url(':/clouds.gif')";
             break;
         case"Rain": 
-            document.getElementById("bg").style.backgroundImage="url('/rain.gif')";
+            document.getElementById("bg").style.backgroundImage="url(':/rain.gif')";
             break;
         case"Snow":
-            document.getElementById("bg").style.backgroundImage="url('/snow.gif')";
+            document.getElementById("bg").style.backgroundImage="url(':/snow.gif')";
             break;
         case"Thunderstorm":
-            document.getElementById("bg").style.backgroundImage="url('/thunderstorm.gif')";
+            document.getElementById("bg").style.backgroundImage="url(':/thunderstorm.gif')";
             break;
         default:
-            document.getElementById("bg").style.backgroundImage="url('/snow.gif')";
+            document.getElementById("bg").style.backgroundImage="url(':/snow.gif')";
             break;
     }
 }
