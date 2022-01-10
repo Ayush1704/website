@@ -103,10 +103,10 @@ function showWeatherData(data)
             document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/clouds.gif')";
             break;
         case"Rain": 
-            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/Rain.gif')";
+            document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/rain.gif')";
             break;
         case"Snow":
-            document.getElementById("bg").style.backgroundImage="url('/https://ayush1704.github.io/website/website/Snow.gif')";
+            document.getElementById("bg").style.backgroundImage="url('/https://ayush1704.github.io/website/website/snow.gif')";
             break;
         case"Thunderstorm":
             document.getElementById("bg").style.backgroundImage="url('https://ayush1704.github.io/website/website/thunderstrom.gif')";
