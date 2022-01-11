@@ -7,10 +7,40 @@ const weatherForecastEl=document.getElementById('weather-forecast');
 const todayTempEl=document.getElementById('today-temp');
 
 
+//getting the longitude latitude from the query parameters
+let query=window.location.search;
+let params= new URLSearchParams(query);
+let city = params.get('city');
+const API_KEY='f74302afc8a30cca325a1325eb663d0c';
+console.log(city);
+
+if(params.has('city')){
+
+   convertCityToLongLat(city);
+
+
+}
+else{
+    getWeatherData();
+}
+
+//a function to convert city to longitude and latitude
+function convertCityToLongLat(city)
+{  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`).then(res=>res.json()).then(data=>{
+        console.log(data);
+       let {lat, lon}=data.coord;
+         getWeatherData({latitude:lat, longitude:lon});
+
+    }).catch(err=>{
+       alert("Cannot find city")
+        console.log(err);
+    });
+}
+
 const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-const API_KEY='f74302afc8a30cca325a1325eb663d0c';
+//hide this properly
 setInterval(() => {
     const time= new Date();
     const month= time.getMonth();
@@ -27,10 +57,19 @@ setInterval(() => {
     dateEl.innerHTML= days[day]+ ',' + date + ' ' + months[month];
 },1000);
 
-getWeatherData();
-function getWeatherData()
+function getWeatherData(coords)
 {
-    navigator.geolocation.getCurrentPosition((success) => {
+if(coords){
+    return fetch(
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.latitude}&lon=${coords.longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				showWeatherData(data);
+			});
+}
+else    navigator.geolocation.getCurrentPosition((success) => {
         
         let{latitude , longitude}=success.coords;
         fetch( `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res=>res.json()).then(data=>{
