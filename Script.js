@@ -14,14 +14,21 @@ let city = params.get('city');
 const API_KEY='f74302afc8a30cca325a1325eb663d0c';
 console.log(city);
 
-if(params.has('city')){
 
-   convertCityToLongLat(city);
-
-
+function handelSearch(e) {
+	//asking a value using prompt
+	let c = prompt("Enter the city name");
+	if (c) {
+		convertCityToLongLat(c);
+	} else {
+		alert("Please enter a city name");
+	}
 }
-else{
-    getWeatherData();
+
+if (params.has("city")) {
+	convertCityToLongLat(city);
+} else {
+	getWeatherData();
 }
 
 //a function to convert city to longitude and latitude
